@@ -1,0 +1,22 @@
+version: "2"
+services:
+  rstudio:
+    extends:
+      file: compose-common.yml
+      service: gui_app
+    build:
+      context: services/rstudio
+      dockerfile: Dockerfile
+    ports:
+      - "3000:8888"
+  spyder:
+    extends:
+      file: compose-common.yml
+      service: gui_app
+    build:
+      context: services/spyder
+      dockerfile: Dockerfile
+    ports:
+      - "3001:8888"
+
+    

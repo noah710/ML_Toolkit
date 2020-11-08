@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#THIS NEEDS TO BE REPLACED IN EACH NODE
+
+cd /
+touch RAN_OPEN_SH
