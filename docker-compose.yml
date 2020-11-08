@@ -1,6 +1,15 @@
 version: "2"
 
 services:
+
+  node_server:
+    build:
+      context: server
+      dockerfile: Dockerfile
+    ports:
+      - "80:8888"
+    command: node /www/server.js
+    
   rstudio:
     extends:
       file: compose-common.yml
@@ -60,3 +69,13 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3005:8888"
+
+  markdown:
+    extends:
+      file: compose-common.yml
+      service: gui_app
+    build:
+      context: services/markdown
+      dockerfile: Dockerfile
+    ports:
+      - "3006:8888"
