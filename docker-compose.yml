@@ -1,4 +1,5 @@
 version: "2"
+
 services:
   rstudio:
     extends:
@@ -9,6 +10,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:8888"
+  
   spyder:
     extends:
       file: compose-common.yml
@@ -18,5 +20,43 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3001:8888"
+  
+  git:
+    extends:
+      file: compose-common.yml
+      service: gui_app
+    build:
+      context: services/git
+      dockerfile: Dockerfile
+    ports:
+      - "3002:8888"
 
-    
+  jupyter:
+    extends:
+      file: compose-common.yml
+      service: gui_app
+    build:
+      context: services/jupyter
+      dockerfile: Dockerfile
+    ports:
+      - "3003:8888"
+  
+  orange:
+    extends:
+      file: compose-common.yml
+      service: gui_app
+    build:
+      context: services/orange
+      dockerfile: Dockerfile
+    ports:
+      - "3004:8888"
+
+  vscpde:
+    extends:
+      file: compose-common.yml
+      service: gui_app
+    build:
+      context: services/vscode
+      dockerfile: Dockerfile
+    ports:
+      - "3005:8888"
