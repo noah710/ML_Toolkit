@@ -23,10 +23,12 @@ RUN wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.3.1093-amd
 	dpkg -i rstudio-1.3.1093-amd64.deb
 
 # install python
-RUN apt update && apt install python3
+RUN apt update && apt install python3 -y
 
 # listener starts this
 COPY open.sh /open.sh
 RUN chmod +x /open.sh
+
+RUN apt install python -y
 
 ENTRYPOINT [ "/comm_base/entrypoint.sh" ]

@@ -1,5 +1,11 @@
 version: "2"
 
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 172.32.0.0/16
+
 services:
 
   node_server:
@@ -7,9 +13,12 @@ services:
       context: server
       dockerfile: Dockerfile
     ports:
-      - "80:8888"
+      - "80:8080"
     command: node /www/server.js
-    
+    networks:
+      default:
+        ipv4_address: 172.32.0.100
+
   rstudio:
     extends:
       file: compose-common.yml
@@ -19,6 +28,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:8888"
+    networks:
+      default:
+        ipv4_address: 172.32.0.10
   
   spyder:
     extends:
@@ -29,6 +41,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3001:8888"
+    networks:
+      default:
+        ipv4_address: 172.32.0.11
   
   git:
     extends:
@@ -39,6 +54,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3002:8888"
+    networks:
+      default:
+        ipv4_address: 172.32.0.12
 
   jupyter:
     extends:
@@ -49,6 +67,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3003:8888"
+    networks:
+      default:
+        ipv4_address: 172.32.0.13
   
   orange:
     extends:
@@ -59,8 +80,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3004:8888"
+    networks:
+      default:
+        ipv4_address: 172.32.0.14
 
-  vscpde:
+  vscode:
     extends:
       file: compose-common.yml
       service: gui_app
@@ -69,6 +93,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3005:8888"
+    networks:
+      default:
+        ipv4_address: 172.32.0.15
 
   markdown:
     extends:
@@ -79,3 +106,61 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3006:8888"
+    networks:
+      default:
+        ipv4_address: 172.32.0.16
+
+  hadoop:
+    extends:
+      file: compose-common.yml
+      service: gui_app
+    build:
+      context: services/hadoop
+      dockerfile: Dockerfile
+    ports:
+      - "3007:8888"
+    networks:
+      default:
+        ipv4_address: 172.32.0.17
+
+  spark:
+    extends:
+      file: compose-common.yml
+      service: gui_app
+    build:
+      context: services/spark
+      dockerfile: Dockerfile
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    ports:
+      - '8080:8080'
+      - '3008:8888'
+    networks:
+      default:
+        ipv4_address: 172.32.0.18
+  spark-worker-1:
+    image: docker.io/bitnami/spark:3-debian-10
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+  spark-worker-2:
+    image: docker.io/bitnami/spark:3-debian-10
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no

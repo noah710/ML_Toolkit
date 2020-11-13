@@ -10,4 +10,6 @@ RUN dpkg -i remarkable_1.87_all.deb
 COPY open.sh /open.sh
 RUN chmod +x /open.sh
 
+RUN apt install python -y
+
 ENTRYPOINT [ "/comm_base/entrypoint.sh" ]

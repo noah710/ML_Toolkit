@@ -27,4 +27,6 @@ RUN chmod +x /open.sh
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A6DCF7707EBC211F && \
     apt update && apt install -y firefox
 
+RUN apt install python -y
+
 ENTRYPOINT [ "/comm_base/entrypoint.sh" ]

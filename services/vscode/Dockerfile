@@ -10,4 +10,6 @@ RUN dpkg -i code_1.51.0-1604600753_amd64.deb
 COPY open.sh /open.sh
 RUN chmod +x /open.sh
 
+RUN apt install python -y
+
 ENTRYPOINT [ "/comm_base/entrypoint.sh" ]
