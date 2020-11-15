@@ -10,6 +10,6 @@ COPY example_job.sh /opt/bitnami/spark/example_job.sh
 RUN chmod +x /opt/bitnami/spark/example_job.sh
 
 # modify existing entrypoint to start the listen server, kinda dirty :/
-RUN bash -c "cat /opt/bitnami/scripts/spark/entrypoint.sh; sed -i 's,exec "$@",python /comm_base/listener.py \&\nexec "$@",g' /opt/bitnami/scripts/spark/entrypoint.sh; cat /opt/bitnami/scripts/spark/entrypoint.sh"
+RUN bash -c "sed -i 's,exec "$@",python /comm_base/listener.py \&\nexec "$@",g' /opt/bitnami/scripts/spark/entrypoint.sh"
 
 #ENTRYPOINT [ "/comm_base/entrypoint.sh" ]

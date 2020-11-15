@@ -1,0 +1,15 @@
+Environment questions:
+	Does it need to run on anything other than Ubuntu? GOOD
+	Is it acceptable to use xhost +local:root on host machine? YES
+	Is it acceptable to specify that an integrated GPU be used? Nvidia not playing nice. FINE
+	
+Services questions:
+	IBM SAS - Said need to open webpage. Link to page needed? Can web interface just open new tab? PORTAL
+	Git - is a git GUI acceptable (git installed on system too)? YES
+	Hadoop - Can I pull a docker image and open a new shell? DEFAULT CONTAINER
+	Spark - Again, can I use another docker image and open a shell in it? DEFAULT CONTAINER
+	Tableau - Desktop app only supports Windows and OSX WEB PORTAL
+	SonarQube/Scanner - Do these binaries just need to be installed? Do I need to set this up the scan my workspace? SIMILAR TO JUPYTER
+	Markdown - Just a markdown text editor? 
+	Tensorflow - Just install tensorflow and open new shell? BASH
+	Jupyter - Just run jupyter and open browser window to the server? good
