@@ -20,23 +20,26 @@ Please note that the SHARED folder is mounted in each container!
 ```bash
 xhost +local:root
 ```
-2. Either build the images yourself, or pull them from my dockerhub.
+2. Add a shared directory, and optionally, add any files or repos you'd like in the containers to SHARED
+```bash
+cd ML_Toolkit
+mkdir SHARED
+```
+3. Either build the images yourself, or pull them from my dockerhub.
 
 **Build yourself** 
 
 ```bash
-cd ML_Toolkit
 docker-compose build
 docker-compose up
 ```
 
 **Use Dockerhub**
 ```bash
-cd ML_Toolkit
 docker-compose -f dockerhub.yml up
 ```
-3. Open any web browser to `http://localhost/main.html`
-4. For subsequent runs, be sure to run `docker-compose down` before running `docker-compose up`
+4. Open any web browser to `http://localhost/main.html`
+5. For subsequent runs, be sure to run `docker-compose down` before running `docker-compose up`
 
 ### Regards
 - Tableau, Sonarscanner, Hadoop, and Spark may take an extra minute to start up
