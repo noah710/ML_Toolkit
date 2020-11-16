@@ -9,9 +9,7 @@ networks:
 services:
 
   node_server:
-    build:
-      context: server
-      dockerfile: Dockerfile
+    image: noah710/ml_toolkit:webserver
     ports:
       - "80:8080"
     command: node /www/server.js
@@ -23,9 +21,7 @@ services:
     extends:
       file: compose-common.yml
       service: gui_app
-    build:
-      context: services/rstudio
-      dockerfile: Dockerfile
+    image: noah710/ml_toolkit:rstudio
     ports:
       - "3000:8888"
     networks:
@@ -36,9 +32,7 @@ services:
     extends:
       file: compose-common.yml
       service: gui_app
-    build:
-      context: services/spyder
-      dockerfile: Dockerfile
+    image: noah710/ml_toolkit:spyder
     ports:
       - "3001:8888"
     networks:
@@ -49,9 +43,7 @@ services:
     extends:
       file: compose-common.yml
       service: gui_app
-    build:
-      context: services/git
-      dockerfile: Dockerfile
+    image: noah710/ml_toolkit:gitkraken
     ports:
       - "3002:8888"
     networks:
@@ -62,9 +54,7 @@ services:
     extends:
       file: compose-common.yml
       service: gui_app
-    build:
-      context: services/jupyter
-      dockerfile: Dockerfile
+    image: noah710/ml_toolkit:jupyter
     ports:
       - "3003:8888"
     networks:
@@ -75,9 +65,7 @@ services:
     extends:
       file: compose-common.yml
       service: gui_app
-    build:
-      context: services/orange
-      dockerfile: Dockerfile
+    image: noah710/ml_toolkit:orange
     ports:
       - "3004:8888"
     networks:
@@ -88,9 +76,7 @@ services:
     extends:
       file: compose-common.yml
       service: gui_app
-    build:
-      context: services/vscode
-      dockerfile: Dockerfile
+    image: noah710/ml_toolkit:vscode
     ports:
       - "3005:8888"
     networks:
@@ -101,9 +87,7 @@ services:
     extends:
       file: compose-common.yml
       service: gui_app
-    build:
-      context: services/markdown
-      dockerfile: Dockerfile
+    image: noah710/ml_toolkit:markdown
     ports:
       - "3006:8888"
     networks:
@@ -114,9 +98,7 @@ services:
     extends:
       file: compose-common.yml
       service: gui_app
-    build:
-      context: services/hadoop
-      dockerfile: Dockerfile
+    image: noah710/ml_toolkit:hadoop
     ports:
       - "3007:8888"
     networks:
@@ -127,9 +109,7 @@ services:
     extends:
       file: compose-common.yml
       service: gui_app
-    build:
-      context: services/spark
-      dockerfile: Dockerfile
+    image: noah710/ml_toolkit:spark
     environment:
       - SPARK_MODE=master
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
@@ -169,9 +149,7 @@ services:
     extends:
       file: compose-common.yml
       service: gui_app
-    build:
-      context: services/tensorflow
-      dockerfile: Dockerfile
+    image: noah710/ml_toolkit:tensorflow
     ports:
       - "3009:8888"
     networks:
@@ -187,9 +165,7 @@ services:
     extends:
       file: compose-common.yml
       service: gui_app
-    build:
-      context: services/sonar
-      dockerfile: Dockerfile
+    image: noah710/ml_toolkit:sonarscanner
     volumes:
       - "./SHARED:/usr/src"
     depends_on: 
