@@ -45,9 +45,9 @@ docker-compose -f dockerhub.yml up
 - Dockerhub - https://hub.docker.com/repository/docker/noah710/ml_toolkit
 ## Implementation details
 **comm_base** - This dir holds a listener which each services uses to listen for triggers to open the application. 
-**server** - Contains a Node webserver that listens for POST requests (button presses) and connects to the relevant service to trigger an application open.
-**services** - Contains dirs for each service, containing at minimum a Dockerfile and open.sh script.
-compose-common.yml - Contains default configuration for a GUI container
+<br/>**server** - Contains a Node webserver that listens for POST requests (button presses) and connects to the relevant service to trigger an application open.
+<br/>**services** - Contains dirs for each service, containing at minimum a Dockerfile and open.sh script.
+<br/>compose-common.yml - Contains default configuration for a GUI container
+<br/><br/>When each service spins up, it runs the comm_base listener which listens for triggers from the web server.
+<br/>When the listener hears a trigger, it calls a subprocess to run the open.sh script, which is manually configured for each service. 
 
-When each service spins up, it runs the comm_base listener which listens for triggers from the web server.
-When the listener hears a trigger, it calls a subprocess to run the open.sh script, which is manually configured for each service. 
