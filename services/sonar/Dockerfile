@@ -1,3 +1,5 @@
+# This Dockerfile is copied from https://github.com/newtmitch/docker-sonar-scanner
+
 #Sonar scanner, runs the actual scanner
 
 FROM openjdk:8
