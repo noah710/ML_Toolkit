@@ -1,3 +1,5 @@
+# This Dockerfile is copied from https://github.com/rstudio/r-docker
+
 ARG BASE_IMAGE=rstudio/r-base
 FROM ${BASE_IMAGE}:bionic
 
