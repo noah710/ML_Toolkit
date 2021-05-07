@@ -1,6 +1,7 @@
 # ML_Toolkit
 
 Final project for CS1660 Intro to Cloud Computing
+![alt text](https://github.com/noah710/ML_Toolkit/blob/master/demo.png?raw=true)
 <br>Demo: https://pitt-my.sharepoint.com/:v:/g/personal/ngl8_pitt_edu/EXLmBRotcDREpNDAA3XJ1PgBOeCo53Y7QkQIv6sXBGHbmA?e=aqtqa0
 
 ## System considerations
