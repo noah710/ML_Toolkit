@@ -1,7 +1,7 @@
 # ML_Toolkit
 
 Final project for CS1660 Intro to Cloud Computing<br>
-![alt text](https://github.com/noah710/ML_Toolkit/blob/master/demo.png?raw=true)<br>
+![demo image](https://github.com/noah710/ML_Toolkit/blob/master/demo.png?raw=true)<br>
 ## Overview
 This is toolkit of containerized applications that are often used in Machine Learning and Cloud Computing. This was completed as an open ended project with the requirments of containerizing the following applications, and deploying them in a micrservice architecture:
 - R Studio
