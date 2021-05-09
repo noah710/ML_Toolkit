@@ -1,7 +1,22 @@
 # ML_Toolkit
 
-Final project for CS1660 Intro to Cloud Computing
-<br>Demo: https://pitt-my.sharepoint.com/:v:/g/personal/ngl8_pitt_edu/EXLmBRotcDREpNDAA3XJ1PgBOeCo53Y7QkQIv6sXBGHbmA?e=aqtqa0
+Final project for CS1660 Intro to Cloud Computing<br>
+![alt text](https://github.com/noah710/ML_Toolkit/blob/master/demo.png?raw=true)<br>
+## Overview
+This is toolkit of containerized applications that are often used in Machine Learning and Cloud Computing. This was completed as an open ended project with the requirments of containerizing the following applications, and deploying them in a micrservice architecture:
+- R Studio
+- Spyder
+- Git GUI tool
+- Jupyter Notebook
+- Orange
+- VSCode IDE
+- Apache Hadoop
+- Apache Spark
+- SonarQube and SonarScanner
+- Tensorflow
+- Markdown editor
+<br>
+<br>Demo Video: https://pitt-my.sharepoint.com/:v:/g/personal/ngl8_pitt_edu/EXLmBRotcDREpNDAA3XJ1PgBOeCo53Y7QkQIv6sXBGHbmA?e=aqtqa0
 
 ## System considerations
 
@@ -12,7 +27,7 @@ This has been tested on Ubuntu 20.04. There is no dedicated GPU or CUDA support 
 - Docker-compose
 - golang-docker-credential-helpers (apt package)
 ## Usage
-A fresh build takes about 20 minutes. You can either build the images yourself or pull them from my dockerhub.
+A fresh build takes about 20 minutes. You can either buserver - Contains a Node webserver that listens for POST requests (button presses) and connects to the relevant service to trigger an application open. ild the images yourself or pull them from my dockerhub.
 
 Please note that the SHARED folder is mounted in each container!
 
